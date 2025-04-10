@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Emix Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="judul"><span id="typing"></span></h1>
+
+    <div class="qris-section">
+      <p>Scan QRIS untuk pembayaran cepat:</p>
+      <img src="https://qu.ax/axTKk.jpg" alt="QRIS Langz" class="qris-img" />
+    </div>
+
+    <div class="card">
+      <p>Atau langsung hubungi kami via WhatsApp:</p>
+      <a href="https://wa.me/6282113038020?text=Halo%20Langz%20Store%2C%20saya%20ingin%20melakukan%20pembayaran%20untuk%20pesanan%20saya." target="_blank">
+        <button>Chat via WhatsApp</button>
+      </a>
+    </div>
+
+    <div class="card">
+      <p>Pembayaran juga bisa melalui:</p>
+
+      <div class="payment-box">
+        <p><strong>DANA</strong></p>
+        <p id="dana">0881012407361</p>
+        <button onclick="copyToClipboard('dana')">Salin</button>
+      </div>
+
+      <div class="payment-box">
+        <p><strong>Gopay</strong></p>
+        <p id="gopay">082113038020</p>
+        <button onclick="copyToClipboard('gopay')">Salin</button>
+      </div>
+
+      <div class="payment-box">
+        <p><strong>OVO</strong></p>
+        <p id="ovo">082113038020</p>
+        <button onclick="copyToClipboard('ovo')">Salin</button>
+      </div>
+    </div>
+
+    <p class="note">Mau order tampilan website seperti ini? order ke 0895391694499</p>
+  </div>
+
+  <script>
+    function copyToClipboard(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      });
+    }
+
+    // Animasi teks ketik
+    const text = "Payment Langz Store";
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+</body>
+</html>
